@@ -1,0 +1,122 @@
+/* Background color */
+.mainpane
+{
+    -fx-background-color: #383838;
+}
+
+@font-face
+{
+    src: url("/assets/fonts/Roboto-Regular.ttf");
+}
+
+/* Changes style of the name choosing box */
+.userChoiceBox
+{
+    -fx-background-color: #585858;
+    -fx-background-radius: 2;
+    -fx-mark-color: #F8F8F8;
+    -fx-focused-mark-color: #383838;
+}
+.userChoiceBox > .label
+{
+    -fx-text-fill: #F8F8F8;
+    -fx-font-family: Roboto;
+    -fx-font-size: 10pt;
+}
+.userChoiceBox:hover
+{
+    -fx-background-color: #424242;
+}
+.userChoiceBox:disabled
+{
+    -fx-background-color: #424242;
+}
+.userChoiceBox .context-menu
+{
+    -fx-background-color: #585858;
+    -fx-background-radius: 2;
+}
+.userChoiceBox .menu-item:focused
+{
+    -fx-background-color: #7cafc2;
+}
+.userChoiceBox .menu-item > .label
+{
+    -fx-text-fill: #F8F8F8;
+    -fx-font-family: Roboto;
+    -fx-font-size: 10pt;
+}
+.userChoiceBox .menu-item:focused > .label
+{
+    -fx-text-fill: #383838;
+}
+.userChoiceBox .arrow
+{
+    -fx-background-color: #7cafc2;
+}
+
+/* Changes style of the mainApp.user confirm button */
+.userChoiceButton
+{
+    -fx-background-color: #7cafc2;
+    -fx-text-fill: #383838;
+    -fx-font-family: Roboto;
+    -fx-font-size: 10pt;
+}
+.userChoiceButton:hover
+{
+    -fx-background-color: #598492;
+}
+.userChoiceButton:disabled
+{
+    -fx-background-color: #598492;
+}
+
+/* Changes style of popup label that signals "no user chosen" */
+.userChoiceErrorLabel:disabled
+{
+    -fx-text-fill: transparent;
+}
+.userChoiceErrorLabel
+{
+    -fx-text-fill: #ff0000;
+    -fx-font-family: Roboto;
+    -fx-font-size: 10pt;
+}
+
+/* Changes style of the separator */
+.separator .line
+{
+    -fx-border-width: 1px;
+    -fx-border-color: #585858   ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

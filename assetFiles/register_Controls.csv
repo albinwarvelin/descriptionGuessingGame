@@ -1,0 +1,134 @@
+1,Norra
+2,Sydöstra
+3,Övre
+4,Nedre
+5,Mellersta
+6,Östra
+7,Södra
+8,Västra
+9,Sydvästra
+10,Nordvästra
+11,Nordöstra
+12,Terrass
+13,Näsa
+14,Sänka
+15,Skärning
+16,Grustag/Stenbrott
+17,Jordvall
+18,Fåra
+19,Liten Fåra
+20,Höjd
+21,Punkthöjd
+22,Sadel
+23,Grop
+24,Liten Naturlig Grop
+25,Liten Grävd Grop/Stenbrott
+26,Småkuperad Terräng
+27,Myrstack
+28,Brant
+29,Klippa
+30,Grotta
+31,Sten
+32,Blockterräng
+33,Stensamling
+34,Stenig Mark
+35,Berg I Dagen
+36,Trång Passage
+37,Sjö
+38,Göl
+39,Vattenhål
+40,Vattendrag
+41,Mindre dike
+42,Smal Sankmark
+43,Sankmark
+44,Fastmark
+45,Brunn
+46,Källa
+47,Vattentank
+48,Öppen Mark
+49,Halvöppen Mark
+50,Skogshörn
+51,Glänta
+52,Tät Skog
+53,Häck
+54,Beståndsgräns
+55,Dunge
+56,Särpräglat Träd
+57,Rotvälta/Stubbe
+58,Väg
+59,Stig
+60,Rågång
+61,Bro/Spång
+62,Kraftledning
+63,Kraftlednings-Stolpe
+64,Tunnel
+65,Mur
+66,Stängsel
+67,Genomgång
+68,Byggnad
+69,Asfalts- eller grusyta
+70,Ruin
+71,Rörledning
+72,Torn
+73,Jakttorn
+74,Röse
+75,Foderhäck
+76,Kolbotten
+77,Monument
+78,Passage Under Byggnad
+79,Trappor
+80,Flack
+81,Låg
+82,Djup
+83,Bevuxen
+84,Öppen
+85,Stenig
+86,Sank
+87,Sandig
+88,Barrträd
+89,Lövträd
+90,Raserad
+91,Höjd eller Djup
+92,Ytstorlek
+93,Korsning
+94,Förgrening
+95,Nordöstra Sidan
+96,Nordvästra Sidan
+97,Sydvästra Sidan
+98,Sydöstra Sidan
+99,Östra Sidan
+100,Norra Sidan
+101,Västra Sidan
+102,Södra Sidan
+103,Sydöstra Kanten
+104,Sydvästra Kanten
+105,Nordvästra Kanten
+106,Nordöstra Kanten
+107,Östra Kanten
+108,Södra Kanten
+109,Västra Kanten
+110,Norra Kanten
+111,Västra Delen
+112,Norra Delen
+113,Östra Delen
+114,Södra Delen
+115,Sydöstra Delen
+116,Sydvästra Delen
+117,Nordvästra Delen
+118,Nordöstra Delen
+119,Östra Hörnet (Insidan)
+120,Södra Hörnet (Utsidan)
+121,Sydvästra Spetsen
+122,Böj eller Krök
+123,Nordvästra Slutet
+124,Uppe I/Övre Delen
+125,Nere I/Nedre Delen
+126,Uppe På
+127,Under
+128,Foten
+129,Nordöstra Foten
+130,Mellan
+131,Sjukvård
+132,Vätska
+133,Radio
+134,Bemannad Kontroll
