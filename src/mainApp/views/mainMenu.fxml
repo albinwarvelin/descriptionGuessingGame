@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainApp.controllers.mainMenuController">
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="mainpane" stylesheets="@../stylesheets/mM-Stylesheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainApp.controllers.mainMenuController">
    <center>
-      <VBox fillWidth="false" maxWidth="-Infinity" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox fillWidth="false" maxWidth="-Infinity" prefWidth="350.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefWidth="200.0" text="Game" textAlignment="CENTER" textOverrun="CLIP">
+            <Label alignment="CENTER" prefWidth="350.0" styleClass="mainMenuLabel" stylesheets="@../stylesheets/mM-Stylesheet.css" text="Main Menu" textAlignment="CENTER" textOverrun="CLIP">
                <font>
                   <Font name="Arial" size="37.0" />
                </font>
@@ -26,51 +23,63 @@
                </padding>
             </Label>
             <Region maxHeight="50.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <Button fx:id="playButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onClickPlayButton" prefHeight="30.0" prefWidth="200.0" text="Play" VBox.vgrow="ALWAYS">
+            <Button fx:id="playButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onClickPlayButton" prefHeight="35.0" prefWidth="350.0" styleClass="playButton" stylesheets="@../stylesheets/mM-Stylesheet.css" text="Play" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets bottom="30.0" />
+                  <Insets bottom="20.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="quitButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onClickQuitButton" prefHeight="30.0" prefWidth="200.0" text="Quit" VBox.vgrow="ALWAYS">
+            <Button fx:id="settingsButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" styleClass="settingsButton" stylesheets="@../stylesheets/mM-Stylesheet.css" text="Settings" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets />
+                  <Insets bottom="20.0" />
                </VBox.margin>
             </Button>
+            <Button fx:id="quitButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onClickQuitButton" prefHeight="35.0" prefWidth="350.0" styleClass="quitButton" stylesheets="@../stylesheets/mM-Stylesheet.css" text="Quit" />
          </children>
       </VBox>
    </center>
-   <left>
-      <ImageView fitHeight="500.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@../../assets/image/left.jpg" />
-         </image>
-         <viewport>
-            <Rectangle2D height="1000.0" minX="200.0" minY="300.0" width="300.0" />
-         </viewport>
-         <effect>
-            <InnerShadow blurType="GAUSSIAN" height="56.88" radius="28.72" width="60.0">
-               <color>
-                  <Color opacity="0.6000000238418579" />
-               </color>
-            </InnerShadow>
-         </effect>
-      </ImageView>
-   </left>
-   <right>
-      <ImageView fitHeight="500.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@../../assets/image/right.jpg" />
-         </image>
-         <viewport>
-            <Rectangle2D height="1000.0" minY="600.0" width="300.0" />
-         </viewport>
-         <effect>
-            <InnerShadow blurType="GAUSSIAN" height="56.88" radius="28.72" width="60.0">
-               <color>
-                  <Color opacity="0.6000000238418579" />
-               </color>
-            </InnerShadow>
-         </effect>
-      </ImageView>
-   </right>
+   <top>
+      <HBox fx:id="topHBox" alignment="CENTER_RIGHT" prefHeight="35.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefWidth="10000.0">
+               <children>
+                  <Label prefHeight="28.0" styleClass="windowLabel" stylesheets="@../stylesheets/mM-Stylesheet.css" text="Main Menu">
+                     <HBox.margin>
+                        <Insets left="9.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="4.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#minimizeButton" prefHeight="35.0" prefWidth="35.0" styleClass="controlBarButton" stylesheets="@../stylesheets/mM-Stylesheet.css">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <graphic>
+                  <Pane maxHeight="5.0" maxWidth="17.0" styleClass="minimizePane" stylesheets="@../stylesheets/mM-Stylesheet.css" />
+               </graphic>
+            </Button>
+            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#maxRestoreButton" prefHeight="35.0" prefWidth="35.0" styleClass="controlBarButton" stylesheets="@../stylesheets/mM-Stylesheet.css">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <Pane maxHeight="17.0" maxWidth="17.0" styleClass="maximizePane" stylesheets="@../stylesheets/mM-Stylesheet.css" />
+               </graphic>
+            </Button>
+            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#closeButton" prefHeight="35.0" prefWidth="35.0" styleClass="closeButton" stylesheets="@../stylesheets/mM-Stylesheet.css">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <Pane maxHeight="17.0" maxWidth="17.0" styleClass="closePane" stylesheets="@../stylesheets/mM-Stylesheet.css" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

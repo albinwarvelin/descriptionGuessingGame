@@ -11,24 +11,32 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="mainpane" stylesheets="@../stylesheets/cP-Stylesheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainApp.controllers.choosePlayerController">
    <center>
-      <AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1280.0" styleClass="mainpane" stylesheets="@../stylesheets/cP-Stylesheet.css">
+      <AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="685.0" prefWidth="1280.0" styleClass="mainpane" stylesheets="@../stylesheets/cP-Stylesheet.css">
          <children>
-            <ChoiceBox fx:id="userChoiceBox" layoutX="164.0" layoutY="220.0" prefHeight="30.0" prefWidth="200.0" styleClass="userChoiceBox" stylesheets="@../stylesheets/cP-Stylesheet.css" />
-            <Button fx:id="userChoiceButton" layoutX="164.0" layoutY="268.0" mnemonicParsing="false" onAction="#onChoosePlayerClick" prefHeight="30.0" prefWidth="200.0" styleClass="userChoiceButton" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Choose Player" />
-            <Separator halignment="RIGHT" layoutX="423.0" layoutY="125.0" orientation="VERTICAL" prefHeight="250.0" prefWidth="0.0" stylesheets="@../stylesheets/cP-Stylesheet.css" valignment="TOP" />
-            <Label fx:id="userChoiceErrorLabel" disable="true" layoutX="75.0" layoutY="295.0" styleClass="userChoiceErrorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="No user chosen!" />
+            <Button fx:id="userChoiceButton" layoutX="135.0" layoutY="351.0" mnemonicParsing="false" onAction="#onChoosePlayerClick" prefHeight="35.0" prefWidth="250.0" styleClass="userChoiceButton" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Choose Player" />
+            <Separator halignment="RIGHT" layoutX="420.0" layoutY="218.0" orientation="VERTICAL" prefHeight="250.0" prefWidth="0.0" stylesheets="@../stylesheets/cP-Stylesheet.css" valignment="TOP" />
+            <Label fx:id="userChoiceErrorLabel" disable="true" layoutX="135.0" layoutY="393.0" styleClass="userChoiceErrorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="No user chosen!" />
+            <HBox layoutX="135.0" layoutY="301.0" prefHeight="36.0" styleClass="userChoiceHBox" stylesheets="@../stylesheets/cP-Stylesheet.css">
+               <children>
+                  <Pane prefHeight="17.0" prefWidth="17.0" styleClass="avatarPane" stylesheets="@../stylesheets/cP-Stylesheet.css">
+                     <HBox.margin>
+                        <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <ChoiceBox fx:id="userChoiceBox" prefHeight="36.0" prefWidth="215.0" styleClass="userChoiceBox" stylesheets="@../stylesheets/cP-Stylesheet.css" />
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
    </center>
    <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="35.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="topHBox" alignment="CENTER_RIGHT" prefHeight="35.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefWidth="10000.0">
                <children>
-                  <Label prefHeight="28.0" styleClass="windowLabel" stylesheets="@../stylesheets/gM-Stylesheet.css" text="Choose Player">
+                  <Label prefHeight="28.0" styleClass="windowLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Choose Player">
                      <HBox.margin>
                         <Insets left="9.0" />
                      </HBox.margin>
@@ -38,7 +46,15 @@
                   </Label>
                </children>
             </HBox>
-            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#minimizeButton" prefHeight="35.0" prefWidth="35.0" styleClass="controlBarButton" stylesheets="@../stylesheets/gM-Stylesheet.css">
+            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#backButton" prefHeight="35.0" prefWidth="35.0" styleClass="controlBarButton" stylesheets="@../stylesheets/cP-Stylesheet.css">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <Pane maxHeight="17.0" maxWidth="21.0" styleClass="backPane" stylesheets="@../stylesheets/cP-Stylesheet.css" />
+               </graphic>
+            </Button>
+            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#minimizeButton" prefHeight="35.0" prefWidth="35.0" styleClass="controlBarButton" stylesheets="@../stylesheets/cP-Stylesheet.css">
                <font>
                   <Font size="1.0" />
                </font>
@@ -46,23 +62,23 @@
                   <Insets />
                </HBox.margin>
                <graphic>
-                  <Pane maxHeight="5.0" maxWidth="17.0" styleClass="minimizePane" stylesheets="@../stylesheets/gM-Stylesheet.css" />
+                  <Pane maxHeight="5.0" maxWidth="17.0" styleClass="minimizePane" stylesheets="@../stylesheets/cP-Stylesheet.css" />
                </graphic>
             </Button>
-            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#maxRestoreButton" prefHeight="35.0" prefWidth="35.0" styleClass="controlBarButton" stylesheets="@../stylesheets/gM-Stylesheet.css">
+            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#maxRestoreButton" prefHeight="35.0" prefWidth="35.0" styleClass="controlBarButton" stylesheets="@../stylesheets/cP-Stylesheet.css">
                <font>
                   <Font size="1.0" />
                </font>
                <graphic>
-                  <Pane maxHeight="17.0" maxWidth="17.0" styleClass="maximizePane" stylesheets="@../stylesheets/gM-Stylesheet.css" />
+                  <Pane maxHeight="17.0" maxWidth="17.0" styleClass="maximizePane" stylesheets="@../stylesheets/cP-Stylesheet.css" />
                </graphic>
             </Button>
-            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#closeButton" prefHeight="35.0" prefWidth="35.0" styleClass="controlBarButton" stylesheets="@../stylesheets/gM-Stylesheet.css">
+            <Button minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#closeButton" prefHeight="35.0" prefWidth="35.0" styleClass="controlBarButton" stylesheets="@../stylesheets/cP-Stylesheet.css">
                <font>
                   <Font size="1.0" />
                </font>
                <graphic>
-                  <Pane maxHeight="17.0" maxWidth="17.0" styleClass="closePane" stylesheets="@../stylesheets/gM-Stylesheet.css" />
+                  <Pane maxHeight="17.0" maxWidth="17.0" styleClass="closePane" stylesheets="@../stylesheets/cP-Stylesheet.css" />
                </graphic>
             </Button>
          </children>

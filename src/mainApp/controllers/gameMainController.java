@@ -8,6 +8,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import mainApp.application.User;
 import mainApp.application.toolbox;
@@ -21,6 +22,7 @@ public class gameMainController implements Initializable
 {
     public BorderPane mainBorderPane;
     public ImageView mainControlImage;
+    public HBox topHBox;
 
     public Button button1 , button2, button3, button4, button5, tryAgainButton;
 
@@ -82,6 +84,8 @@ public class gameMainController implements Initializable
         {
             choiceKeyIsPressed = false;
         });
+
+        main.makeScreenDraggable(topHBox);
     }
 
     /* Returns list of javafx Images of control description icons */
@@ -405,7 +409,7 @@ public class gameMainController implements Initializable
         /* Try-catch Clears csv file */
         try
         {
-            BufferedWriter csvWriter = new BufferedWriter(new FileWriter("src/assets/controlGuessUserData.csv"));
+            BufferedWriter csvWriter = new BufferedWriter(new FileWriter("src/assets/localUserData.csv"));
             csvWriter.write("");
         }
         catch (IOException e)
@@ -417,7 +421,7 @@ public class gameMainController implements Initializable
 
         for (String name : nameList)
         {
-            userList.get(name).addSaveToCsv(new File("src/assets/controlGuessUserData.csv"));
+            userList.get(name).addSaveToCsv(new File("src/assets/localUserData.csv"));
         }
     }
 
@@ -437,5 +441,17 @@ public class gameMainController implements Initializable
     public void minimizeButton()
     {
         main.window.setIconified(true);
+    }
+
+    /* Goes to previous window */
+    public void backButton()
+    {
+        main.changeScene("choosePlayer");
+
+        score = 0;
+        scoreLabel.setText("Score: " + score);
+
+        confirmationLabel.setText("");
+        setNewGameContent(imageDescriptions, imageRandomizer(controlImageList));
     }
 }

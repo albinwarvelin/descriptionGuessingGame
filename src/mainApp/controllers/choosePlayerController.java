@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import mainApp.application.User;
 import mainApp.main;
 
@@ -22,6 +23,7 @@ public class choosePlayerController implements Initializable
     public ChoiceBox<String> userChoiceBox;
     public Button userChoiceButton;
     public Label userChoiceErrorLabel;
+    public HBox topHBox;
 
     private static HashMap<String, User> userList = new HashMap<>();
 
@@ -38,6 +40,8 @@ public class choosePlayerController implements Initializable
         }
 
         fillChoiceBox(userList);
+
+        main.makeScreenDraggable(topHBox);
     }
 
     /* Loads all saved users from csv file */
@@ -45,7 +49,7 @@ public class choosePlayerController implements Initializable
     {
         HashMap<String, User> userList = new HashMap<>();
 
-        BufferedReader csvReader = new BufferedReader(new FileReader("src/assets/controlGuessUserData.csv"));
+        BufferedReader csvReader = new BufferedReader(new FileReader("src/assets/localUserData.csv"));
         String csvRow;
 
         while ((csvRow = csvReader.readLine()) != null)
@@ -86,7 +90,7 @@ public class choosePlayerController implements Initializable
 
             userChoiceErrorLabel.setDisable(true);
             main.setUserDataLoaded();
-            main.fadeChangeScene(mainAnchorPane, "gameMain", 1);
+            main.changeScene( "gameMain");
         }
         else
         {
@@ -115,5 +119,11 @@ public class choosePlayerController implements Initializable
     public void minimizeButton()
     {
         main.window.setIconified(true);
+    }
+
+    /* Goes to previous window */
+    public void backButton()
+    {
+        main.changeScene("mainMenu");
     }
 }

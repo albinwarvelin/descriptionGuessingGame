@@ -10,10 +10,15 @@
 }
 
 /* Changes style of the name choosing box */
-.userChoiceBox
+.userChoiceHBox
 {
     -fx-background-color: #585858;
-    -fx-background-radius: 2;
+    -fx-background-radius: 2px;
+}
+.userChoiceBox
+{
+    -fx-background-color: transparent;
+    -fx-background-radius: 2px;
     -fx-mark-color: #F8F8F8;
     -fx-focused-mark-color: #383838;
 }
@@ -55,6 +60,13 @@
     -fx-background-color: #7cafc2;
 }
 
+/* Changes style of avatar beside choicebox */
+.avatarPane
+{
+    -fx-background-color: #7cafc2;
+    -fx-shape: "M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z";
+}
+
 /* Changes style of the mainApp.user confirm button */
 .userChoiceButton
 {
@@ -89,6 +101,52 @@
 {
     -fx-border-width: 1px;
     -fx-border-color: #585858   ;
+}
+
+/* Upper control bar */
+.controlBarButton
+{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+}
+.controlBarButton:hover
+{
+    -fx-background-color: #474747;
+}
+.closeButton
+{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+}
+.closeButton:hover
+{
+    -fx-background-color: #ab4642;
+}
+.closePane
+{
+    -fx-background-color: #585858;
+    -fx-shape: "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z";
+}
+.maximizePane
+{
+    -fx-background-color: #585858;
+    -fx-shape: "M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-16 160H64v-84c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12v84z";
+}
+.minimizePane
+{
+    -fx-background-color: #585858;
+    -fx-shape: "M464 352H48c-26.5 0-48 21.5-48 48v32c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-32c0-26.5-21.5-48-48-48z";
+}
+.backPane
+{
+    -fx-background-color: #585858;
+    -fx-shape: "M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z";
+}
+.windowLabel
+{
+    -fx-text-fill: #585858;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 17pt;
 }
 
 
