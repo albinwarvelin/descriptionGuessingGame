@@ -31,6 +31,7 @@ public class gameMainController implements Initializable
     public ListView<String> highScoreNameListView;
     public ListView<Integer> highScoreScoreListView;
 
+
     private HashMap<Integer, String> imageDescriptions;
     private Image[] controlImageList;
     private int imageAmount = 0;
@@ -44,13 +45,12 @@ public class gameMainController implements Initializable
 
     private static HashMap<String, User> userList;
     private static User currentUser;
+    private static boolean newUserAdded = false;
 
     /* Sets up scene when first run, sets highscore lists and button options. Also initiates key listener for button choices */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        userList = choosePlayerController.getUserList();
-
         try                                                                     //Catches exception for FileReader when file isn't found
         {
             imageDescriptions = readImageDescription();
@@ -95,7 +95,7 @@ public class gameMainController implements Initializable
 
         for (int i = 1; i < 135; i++)
         {
-            File file = new File(toolbox.getCurrentDirectory() + "\\assetFiles\\" + i + ".jpg");
+            File file = new File(toolbox.getCurrentDirectory() + "\\assetFiles\\descriptionImages\\" + i + ".jpg");
             controlImageList[i - 1] = new javafx.scene.image.Image(file.toURI().toString());
             imageAmount++;
         }
@@ -288,7 +288,7 @@ public class gameMainController implements Initializable
         tryAgainButton.setVisible(false);
 
         button1.setDisable(false);
-        button2.setStyle("-fx-background-color: #a1b56c;");
+        button1.setStyle("-fx-background-color: #a1b56c;");
 
         button2.setDisable(false);
         button2.setStyle("-fx-background-color: #a1b56c;");
@@ -325,8 +325,10 @@ public class gameMainController implements Initializable
     }
 
     /* Sets and sorts highscore list with user HighScores */
-    private void setHighScores()
+    public void setHighScores()
     {
+        userList = choosePlayerController.getUserList();
+
         ArrayList<String> nameList = new ArrayList<>(userList.keySet());
 
         for(int i = 0; i < nameList.size(); i++)
@@ -363,13 +365,36 @@ public class gameMainController implements Initializable
         }
     }
 
+    /* Sorts highscoreList */
     private void updateHighScores(int currentScore)
     {
         currentUser.checkAndSetHighScore(currentScore);
 
+        ArrayList<String> nameList = new ArrayList<>(userList.keySet());
+
+        if(newUserAdded)
+        {
+            highScoreNameListView.getItems().clear();
+            highScoreScoreListView.getItems().clear();
+
+            for(int i = 0; i < nameList.size(); i++)
+            {
+                highScoreNameListView.getItems().add(nameList.get(i));
+                highScoreScoreListView.getItems().add(userList.get(nameList.get(i)).getHighScore());
+            }
+
+            newUserAdded = false;
+        }
+
+
         for(int i = 0; i < highScoreNameListView.getItems().size(); i++)
         {
             if(highScoreNameListView.getItems().get(i).equals(currentUser.getName()))
+            {
+                highScoreScoreListView.getItems().remove(i);
+                highScoreScoreListView.getItems().add(i, currentUser.getHighScore());
+            }
+            if(highScoreNameListView.getItems().get(i).equals(currentUser.getUserName()))
             {
                 highScoreScoreListView.getItems().remove(i);
                 highScoreScoreListView.getItems().add(i, currentUser.getHighScore());
@@ -385,12 +410,6 @@ public class gameMainController implements Initializable
                     highScoreScoreListView.getItems().remove(i - 1);
                     highScoreNameListView.getItems().remove(i - 1);
 
-                    highScoreScoreListView.getItems().add(i, highScoreScoreListView.getItems().get(i));
-                    highScoreNameListView.getItems().add(i, highScoreNameListView.getItems().get(i));
-
-                    highScoreScoreListView.getItems().remove(i);
-                    highScoreNameListView.getItems().remove(i);
-
                     highScoreScoreListView.getItems().add(i, tempScore);
                     highScoreNameListView.getItems().add(i, tempName);
 
@@ -402,6 +421,19 @@ public class gameMainController implements Initializable
     public static void setCurrentUser(User inputCurrentUser)
     {
         currentUser = inputCurrentUser;
+    }
+
+    public static void addUser(User userAdd){
+        if (!userAdd.getName().equals(" "))
+        {
+            userList.put(userAdd.getName(), userAdd);
+        }
+        else
+        {
+            userList.put(userAdd.getUserName(), userAdd);
+        }
+
+        newUserAdded = true;
     }
 
     public static void saveUserData()

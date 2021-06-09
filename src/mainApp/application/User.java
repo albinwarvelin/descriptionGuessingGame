@@ -7,19 +7,25 @@ import java.io.IOException;
 
 public class User
 {
+    private String userName;
+
     private String firstName;
     private String lastName;
 
     private int highScore = 0;
     private int timesPlayed = 0;
 
+    private int avatarID;
+
     /* Sets all data variables, used when constructing */
-    public User(String inputFirstName, String inputLastName, Integer inputHighScore, Integer inputTimesPlayed)
+    public User(String inputUsername, String inputFirstName, String inputLastName, Integer inputHighScore, Integer inputTimesPlayed, Integer inputAvatarId)
     {
         firstName = inputFirstName;
         lastName = inputLastName;
         highScore = inputHighScore;
         timesPlayed = inputTimesPlayed;
+        userName = inputUsername;
+        avatarID = inputAvatarId;
     }
 
     /* Sets firstname for mainApp.user, removes blank space before and after */
@@ -56,6 +62,8 @@ public class User
         timesPlayed++;
     }
 
+    public String getUserName(){return userName;}
+
     public String getFirstName()
     {
         return firstName;
@@ -81,12 +89,18 @@ public class User
         return timesPlayed;
     }
 
+    public int getAvatarID()
+    {
+        return avatarID;
+    };
+
+    /* Writes user to csv file */
     public void addSaveToCsv(File csvFile)
     {
         try
         {
             BufferedWriter csvWriter = new BufferedWriter(new FileWriter(csvFile, true));
-            csvWriter.write(firstName + "," + lastName + "," + highScore + "," + timesPlayed + "\n");
+            csvWriter.write(userName + "," + firstName + "," + lastName + "," + highScore + "," + timesPlayed + "," + avatarID + "\n");
             csvWriter.close();
         }
         catch (IOException e)

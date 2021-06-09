@@ -5,22 +5,29 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="mainpane" stylesheets="@../stylesheets/cP-Stylesheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainApp.controllers.choosePlayerController">
    <center>
       <AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="685.0" prefWidth="1280.0" styleClass="mainpane" stylesheets="@../stylesheets/cP-Stylesheet.css">
          <children>
-            <Button fx:id="userChoiceButton" layoutX="135.0" layoutY="351.0" mnemonicParsing="false" onAction="#onChoosePlayerClick" prefHeight="35.0" prefWidth="250.0" styleClass="userChoiceButton" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Choose Player" />
-            <Separator halignment="RIGHT" layoutX="420.0" layoutY="218.0" orientation="VERTICAL" prefHeight="250.0" prefWidth="0.0" stylesheets="@../stylesheets/cP-Stylesheet.css" valignment="TOP" />
-            <Label fx:id="userChoiceErrorLabel" disable="true" layoutX="135.0" layoutY="393.0" styleClass="userChoiceErrorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="No user chosen!" />
-            <HBox layoutX="135.0" layoutY="301.0" prefHeight="36.0" styleClass="userChoiceHBox" stylesheets="@../stylesheets/cP-Stylesheet.css">
+            <Button fx:id="userChoiceButton" layoutX="148.0" layoutY="351.0" mnemonicParsing="false" onAction="#onChoosePlayerClick" prefHeight="35.0" prefWidth="250.0" styleClass="userChoiceButton" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Choose Player" />
+            <Separator halignment="RIGHT" layoutX="431.0" layoutY="218.0" orientation="VERTICAL" prefHeight="250.0" prefWidth="0.0" stylesheets="@../stylesheets/cP-Stylesheet.css" valignment="TOP" />
+            <Label fx:id="userChoiceErrorLabel" disable="true" layoutX="148.0" layoutY="400.0" styleClass="errorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="No user chosen!" />
+            <HBox layoutX="148.0" layoutY="301.0" prefHeight="36.0" styleClass="userChoiceHBox" stylesheets="@../stylesheets/cP-Stylesheet.css">
                <children>
-                  <Pane prefHeight="17.0" prefWidth="17.0" styleClass="avatarPane" stylesheets="@../stylesheets/cP-Stylesheet.css">
+                  <Pane prefHeight="17.0" prefWidth="17.0" styleClass="choiceIconPane" stylesheets="@../stylesheets/cP-Stylesheet.css">
                      <HBox.margin>
                         <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />
                      </HBox.margin>
@@ -28,6 +35,196 @@
                   <ChoiceBox fx:id="userChoiceBox" prefHeight="36.0" prefWidth="215.0" styleClass="userChoiceBox" stylesheets="@../stylesheets/cP-Stylesheet.css" />
                </children>
             </HBox>
+            <VBox layoutX="489.0" layoutY="112.0" spacing="10.0">
+               <children>
+                  <HBox fillHeight="false" spacing="10.0">
+                     <children>
+                        <ImageView fx:id="av1_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_1" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar0.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av2_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_2" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av3_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_3" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av4_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_4" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar3.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av5_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_5" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar4.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av6_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_6" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar5.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av7_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_7" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar6.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="60.0" right="60.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox fillHeight="false" spacing="10.0">
+                     <children>
+                        <ImageView fx:id="av8_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_8" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar7.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av9_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_9" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar8.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av10_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_10" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar9.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av11_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_11" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar10.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av12_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_12" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar11.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av13_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_13" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar12.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av14_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_14" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar13.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="av15_ImageView" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#avatarSelect_15" pickOnBounds="true" preserveRatio="true" styleClass="avatarImageView">
+                           <image>
+                              <Image url="@../../assets/avatarIcons/avatar14.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label fx:id="chooseAvatarErrorLabel" disable="true" styleClass="errorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="35.0" prefWidth="550.0" spacing="20.0">
+                     <children>
+                        <TextField fx:id="usernameTextField" onKeyReleased="#updateCreatePreview" prefHeight="100.0" promptText="Username" styleClass="inputTextFields" stylesheets="@../stylesheets/cP-Stylesheet.css" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="firstnameTextField" onKeyReleased="#updateCreatePreview" prefHeight="100.0" promptText="Firstname (Optional)" styleClass="inputTextFields" stylesheets="@../stylesheets/cP-Stylesheet.css" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="lastnameTextField" onKeyReleased="#updateCreatePreview" prefHeight="100.0" promptText="Lastname (Optional)" styleClass="inputTextFields" stylesheets="@../stylesheets/cP-Stylesheet.css" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="22.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label fx:id="userNameErrorLabel" disable="true" styleClass="errorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" />
+                  <HBox styleClass="previewFrame" stylesheets="@../stylesheets/cP-Stylesheet.css">
+                     <children>
+                        <Pane prefHeight="90.0" prefWidth="90.0" styleClass="previewBackground" stylesheets="@../stylesheets/cP-Stylesheet.css">
+                           <children>
+                              <Pane layoutX="5.0" layoutY="5.0" prefHeight="80.0" prefWidth="80.0" styleClass="previewAvatarBackground" stylesheets="@../stylesheets/cP-Stylesheet.css">
+                                 <children>
+                                    <ImageView fx:id="avatarPreviewImageview" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </Pane>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </Pane>
+                        <HBox HBox.hgrow="ALWAYS">
+                           <children>
+                              <GridPane hgap="10.0" styleClass="previewBackground" stylesheets="@../stylesheets/cP-Stylesheet.css" HBox.hgrow="ALWAYS">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label styleClass="previewDescriptionLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Username" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" />
+                                    <Label fx:id="usernameDisplayLabel" styleClass="previewInformationLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                                       <GridPane.margin>
+                                          <Insets left="25.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="previewDescriptionLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Name" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                                    <Label fx:id="nameDisplayLabel" styleClass="previewInformationLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                                       <GridPane.margin>
+                                          <Insets left="25.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <GridPane hgap="10.0" styleClass="previewBackground" stylesheets="@../stylesheets/cP-Stylesheet.css" HBox.hgrow="ALWAYS">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label styleClass="previewDescriptionLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Highscore" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+                                    <Label fx:id="usernameDisplayLabel11" styleClass="previewInformationLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="XXXX" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                                       <GridPane.margin>
+                                          <Insets left="25.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="previewDescriptionLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Times Played" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                                       <GridPane.margin>
+                                          <Insets left="110.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="usernameDisplayLabel111" styleClass="previewInformationLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="XXXX" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                                       <GridPane.margin>
+                                          <Insets left="135.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Button fx:id="createPlayerButton" alignment="CENTER" mnemonicParsing="false" onAction="#onCreatePlayerClick" prefHeight="35.0" prefWidth="250.0" styleClass="userChoiceButton" stylesheets="@../stylesheets/cP-Stylesheet.css" text="Create Player">
+                     <VBox.margin>
+                        <Insets left="180.0" right="180.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </center>
