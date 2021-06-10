@@ -466,7 +466,7 @@ public class gameMainController implements Initializable
     /* Maximizes/restores window */
     public void maxRestoreButton()
     {
-        main.window.setMaximized(!main.window.isMaximized());
+        main.maxRestoreWindow();
     }
 
     /* Minimizes window */

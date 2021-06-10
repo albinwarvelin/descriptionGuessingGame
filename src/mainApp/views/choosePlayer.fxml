@@ -126,7 +126,7 @@
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
                   </HBox>
-                  <Label fx:id="chooseAvatarErrorLabel" disable="true" styleClass="errorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css">
+                  <Label fx:id="chooseAvatarErrorLabel" disable="true" styleClass="errorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="error">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
@@ -141,7 +141,17 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </HBox>
-                  <Label fx:id="userNameErrorLabel" disable="true" styleClass="errorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" />
+                  <HBox spacing="20.0">
+                     <children>
+                        <Label fx:id="userNameErrorLabel" disable="true" prefWidth="190.0" styleClass="errorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="username error" />
+                        <Label fx:id="firstNameErrorLabel" disable="true" prefWidth="190.0" styleClass="errorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="firstname error">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="lastNameErrorLabel" disable="true" prefWidth="190.0" styleClass="errorLabel" stylesheets="@../stylesheets/cP-Stylesheet.css" text="lastname error" />
+                     </children>
+                  </HBox>
                   <HBox styleClass="previewFrame" stylesheets="@../stylesheets/cP-Stylesheet.css">
                      <children>
                         <Pane prefHeight="90.0" prefWidth="90.0" styleClass="previewBackground" stylesheets="@../stylesheets/cP-Stylesheet.css">

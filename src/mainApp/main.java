@@ -1,15 +1,14 @@
 package mainApp;
 
-import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import mainApp.controllers.gameMainController;
 
 public class main extends Application
@@ -27,6 +26,7 @@ public class main extends Application
     private static double yOffset = 0;
 
     private static boolean userDataIsLoaded = false;
+    private static boolean isMaximized = false;
 
     /* Main method launches application by calling start method */
     public static void main(String[] args)
@@ -46,6 +46,7 @@ public class main extends Application
 
         window.setTitle("Game");
         window.setScene(mainMenuScene);
+
         window.show();
 
         /* Loads all scenes for further use, to minimize lag */
@@ -69,50 +70,32 @@ public class main extends Application
             default -> throw new NullPointerException("Incorrect key, no scene found.");
         }
 
+
         window.setScene(switchToScene);
     }
 
-    /* Changes scene with fade animation */
-    public static void fadeChangeScene(Node fromPane, String key, int duration)
+    public static void maxRestoreWindow()
     {
-        Node toPane;
-        Scene switchToScene;
-        switch (key)
+        Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
+
+        if (!isMaximized)
         {
-            case "choosePlayer":
-                toPane = choosePlayerPane;
-                toPane.setOpacity(0);
-                switchToScene = choosePlayerScene;
-                break;
+            window.setWidth(screenSize.getWidth());
+            window.setHeight(screenSize.getHeight());
 
-            case "gameMain":
-                toPane = gameMainPane;
-                toPane.setOpacity(0);
-                switchToScene = gameMainScene;
-                break;
+            window.centerOnScreen();
 
-            default:
-                throw new NullPointerException("Incorrect key, no scene found.");
+            isMaximized = true;
         }
-
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds((double) duration / 2), fromPane);
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds((double) duration / 2), toPane);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-
-        fadeOut.setOnFinished((ActionEvent) ->
+        else
         {
-            window.setScene(switchToScene);
+            window.setWidth(1280);
+            window.setHeight(720);
 
-            fadeIn.play();
+            window.centerOnScreen();
 
-            fromPane.setOpacity(1.0);
-        });
-
-        fadeOut.play();
+            isMaximized = false;
+        }
     }
 
     /* Sets boolean userDataLoaded, used to determine if app should save userdata on close */

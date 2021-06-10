@@ -1,8 +1,10 @@
 package mainApp.controllers;
 
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Screen;
 import mainApp.main;
 
 import java.io.IOException;
@@ -42,7 +44,7 @@ public class mainMenuController implements Initializable
     /* Maximizes/restores window */
     public void maxRestoreButton()
     {
-        main.window.setMaximized(!main.window.isMaximized());
+        main.maxRestoreWindow();
     }
 
     /* Minimizes window */

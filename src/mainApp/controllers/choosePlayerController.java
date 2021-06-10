@@ -28,7 +28,7 @@ public class choosePlayerController implements Initializable
     public AnchorPane mainAnchorPane;
     public ChoiceBox<String> userChoiceBox;
     public Button userChoiceButton;
-    public Label userChoiceErrorLabel, chooseAvatarErrorLabel, userNameErrorLabel, usernameDisplayLabel, nameDisplayLabel;
+    public Label userChoiceErrorLabel, chooseAvatarErrorLabel, userNameErrorLabel, firstNameErrorLabel, lastNameErrorLabel, usernameDisplayLabel, nameDisplayLabel;
     public HBox topHBox;
 
     public ImageView av1_ImageView, av2_ImageView, av3_ImageView, av4_ImageView, av5_ImageView, av6_ImageView, av7_ImageView, av8_ImageView,
@@ -148,9 +148,9 @@ public class choosePlayerController implements Initializable
     /* Called when button is pressed */
     public void onCreatePlayerClick()
     {
-        if (checkCriteria())
+        if (checkCriteriaDraft())
         {
-            User newUser = new User(usernameTextField.getText(),firstnameTextField.getText().trim(), lastnameTextField.getText().trim(), 0, 0, avatarID);
+            User newUser = new User(usernameTextField.getText().toLowerCase(),firstnameTextField.getText().trim(), lastnameTextField.getText().trim(), 0, 0, avatarID);
             if (!newUser.getName().equals(" "))
             {
                 userList.put(newUser.getName(), newUser);
@@ -235,12 +235,85 @@ public class choosePlayerController implements Initializable
         return criteriaMet;
     }
 
+    private boolean checkCriteriaDraft()
+    {
+        boolean criteriaMet = true;
+
+        /* If username is blank */
+        if (usernameTextField.getText().equals(""))
+        {
+            criteriaMet = false;
+            userNameErrorLabel.setText("No Username Chosen!");
+            userNameErrorLabel.setDisable(false);
+        }
+
+        /* If username contains space */
+        else if (usernameTextField.getText().contains(" "))
+        {
+            criteriaMet = false;
+            userNameErrorLabel.setText("Username can't contain space!");
+            userNameErrorLabel.setDisable(false);
+        }
+
+        /* If username is too long */
+        else if (usernameTextField.getText().length() > 14)
+        {
+            criteriaMet = false;
+            userNameErrorLabel.setText("Username can't be longer than 14 characters!");
+            userNameErrorLabel.setDisable(false);
+        }
+        else
+        {
+            userNameErrorLabel.setDisable(true);
+        }
+
+        /* If no avatar is chosen */
+        if (avatarID == -1)
+        {
+            criteriaMet = false;
+            chooseAvatarErrorLabel.setText("No avatar chosen!");
+            chooseAvatarErrorLabel.setDisable(false);
+        }
+        else
+        {
+            chooseAvatarErrorLabel.setDisable(true);
+        }
+
+        /* If firstname contains space (only occurs when both first and lastname are input in same textfield) */
+        if (firstnameTextField.getText().contains(" "))
+        {
+            criteriaMet = false;
+            firstNameErrorLabel.setText("Firstname can't contain space!");
+            firstNameErrorLabel.setDisable(false);
+        }
+        else
+        {
+            firstNameErrorLabel.setDisable(true);
+        }
+
+        /* If lastname contains space (only occurs when both first and lastname are input in same textfield) */
+        if (lastnameTextField.getText().contains(" "))
+        {
+            criteriaMet = false;
+            lastNameErrorLabel.setText("Lastname can't contain space!");
+            lastNameErrorLabel.setDisable(false);
+        }
+        else
+        {
+            lastNameErrorLabel.setDisable(true);
+        }
+
+        return criteriaMet;
+    }
+
     /* Updates preview */
     public void updateCreatePreview()
     {
-        avatarPreviewImageview.setImage(av_Image[avatarID]);
-
-        usernameDisplayLabel.setText(usernameTextField.getText());
+        if (!(avatarID == -1))
+        {
+            avatarPreviewImageview.setImage(av_Image[avatarID]);
+        }
+        usernameDisplayLabel.setText(usernameTextField.getText().toLowerCase());
         nameDisplayLabel.setText(firstnameTextField.getText().trim() + " " + lastnameTextField.getText().trim());
     }
 
@@ -290,7 +363,7 @@ public class choosePlayerController implements Initializable
     /* Maximizes/restores window */
     public void maxRestoreButton()
     {
-        main.window.setMaximized(!main.window.isMaximized());
+        main.maxRestoreWindow();
     }
 
     /* Minimizes window */
