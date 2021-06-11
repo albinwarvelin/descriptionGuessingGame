@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -34,12 +35,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <StackPane maxHeight="-Infinity" prefHeight="350.0" prefWidth="350.0" styleClass="controlImage" stylesheets="@../stylesheets/gM-Stylesheet.css" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                  <StackPane fx:id="controlImageStackPane" maxHeight="-Infinity" prefHeight="350.0" prefWidth="350.0" styleClass="controlImage" stylesheets="@../stylesheets/gM-Stylesheet.css" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="20.0" />
                      </GridPane.margin>
                      <children>
-                        <ImageView fx:id="mainControlImage" fitHeight="350.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="mainControlImage" disable="true" fitHeight="350.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../assetFiles/1.jpg" />
                            </image>
@@ -54,7 +55,7 @@
                   <Button fx:id="button1" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#button1Pressed" prefHeight="30.0" prefWidth="217.0" styleClass="choiceButton" stylesheets="@../stylesheets/gM-Stylesheet.css" text="Choice 1" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                   <Button fx:id="button4" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#button4Pressed" prefHeight="30.0" prefWidth="217.0" styleClass="choiceButton" stylesheets="@../stylesheets/gM-Stylesheet.css" text="Choice 4" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                   <Button fx:id="button5" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#button5Pressed" prefHeight="30.0" prefWidth="217.0" styleClass="choiceButton" stylesheets="@../stylesheets/gM-Stylesheet.css" text="Choice 5" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox fx:id="highscoreNameVBox" prefHeight="200.0" prefWidth="100.0">
                      <GridPane.margin>
                         <Insets bottom="15.0" left="30.0" top="15.0" />
                      </GridPane.margin>
@@ -78,7 +79,7 @@
                         </StackPane>
                      </children>
                   </VBox>
-                  <VBox maxWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+                  <VBox fx:id="highscoreScoreVBox" maxWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT">
                      <children>
                         <StackPane prefHeight="300.0" styleClass="highscoreListFrame" stylesheets="@../stylesheets/gM-Stylesheet.css">
                            <children>
@@ -94,7 +95,7 @@
                         <Insets bottom="15.0" top="45.0" />
                      </GridPane.margin>
                   </VBox>
-                  <Label fx:id="confirmationLabel" styleClass="confirmationLabel" stylesheets="@../stylesheets/gM-Stylesheet.css" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label fx:id="confirmationLabel" styleClass="confirmationLabel" stylesheets="@../stylesheets/gM-Stylesheet.css" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <GridPane.margin>
                         <Insets bottom="175.0" />
                      </GridPane.margin>
@@ -102,6 +103,15 @@
                   <Button fx:id="tryAgainButton" mnemonicParsing="false" onAction="#tryAgainButtonPressed" prefHeight="30.0" prefWidth="217.0" styleClass="tryAgainButton" stylesheets="@../stylesheets/gM-Stylesheet.css" text="Try Again!" visible="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <GridPane.margin>
                         <Insets bottom="125.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Label fx:id="countdownLabel" alignment="CENTER" prefHeight="121.0" prefWidth="250.0" styleClass="countdownLabel" stylesheets="@../stylesheets/gM-Stylesheet.css" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="50.0" />
+                     </GridPane.margin></Label>
+                  <Button fx:id="startGameButton" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startGameButtonPressed" prefHeight="40.0" prefWidth="300.0" styleClass="startgameButton" stylesheets="@../stylesheets/gM-Stylesheet.css" text="Start Game" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets top="75.0" />
                      </GridPane.margin>
                   </Button>
                </children>
@@ -162,4 +172,10 @@
          </children>
       </HBox>
    </top>
+   <bottom>
+      <ProgressBar fx:id="countdownBar" disable="true" prefWidth="10000.0" progress="1.0" styleClass="countdownBar" stylesheets="@../stylesheets/gM-Stylesheet.css" BorderPane.alignment="CENTER_LEFT">
+         <BorderPane.margin>
+            <Insets left="-2.0" right="-2.0" />
+         </BorderPane.margin></ProgressBar>
+   </bottom>
 </BorderPane>

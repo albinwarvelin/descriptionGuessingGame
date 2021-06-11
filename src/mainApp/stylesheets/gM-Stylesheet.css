@@ -33,6 +33,10 @@
     -fx-background-radius: 10;
     -fx-effect: dropshadow(gaussian, #232323, 75, 0.5, 0,0);
 }
+.controlImage:disabled
+{
+    -fx-opacity: 0.25;
+}
 
 /* Highscore list style */
 .highscoreList
@@ -138,4 +142,51 @@
 .tryAgainButton:hover
 {
     -fx-background-color: #7d3230;
+}
+
+/* Choice button style */
+.startgameButton
+{
+    -fx-background-color: #7cafc2;
+    -fx-background-radius: 2;
+    -fx-effect: dropshadow(gaussian, #2a2a2a, 25, 0.1, 0,0);
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 14pt;
+}
+.startgameButton:hover
+{
+    -fx-background-color: #5e8492;
+}
+.startgameButton:disabled
+{
+    -fx-opacity: 0;
+}
+
+.countdownLabel
+{
+    -fx-text-fill: #e8e8e8;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 75pt;
+    -fx-font-style: italic;
+}
+.countdownLabel:disabled
+{
+    -fx-opacity: 0;
+}
+
+.countdownBar > .bar
+{
+    -fx-padding: 10px;
+    -fx-background-insets: 0px;
+    -fx-background-radius: 2px;
+}
+.countdownBar > .track
+{
+    -fx-background-color: transparent;
+}
+.countdownBar:disabled
+{
+    -fx-opacity: 0;
 }

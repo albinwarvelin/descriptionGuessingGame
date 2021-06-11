@@ -13,7 +13,6 @@ import mainApp.application.User;
 import mainApp.application.toolbox;
 import mainApp.main;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -148,7 +147,7 @@ public class choosePlayerController implements Initializable
     /* Called when button is pressed */
     public void onCreatePlayerClick()
     {
-        if (checkCriteriaDraft())
+        if (checkCriteria())
         {
             User newUser = new User(usernameTextField.getText().toLowerCase(),firstnameTextField.getText().trim(), lastnameTextField.getText().trim(), 0, 0, avatarID);
             if (!newUser.getName().equals(" "))
@@ -172,70 +171,7 @@ public class choosePlayerController implements Initializable
         }
     }
 
-    /* Checks if criterias are met, called when any variable part of "create player" changes */
     private boolean checkCriteria()
-    {
-        boolean criteriaMet;
-
-        if ((usernameTextField.getText().equals("")) && (avatarID == -1))
-        {
-            criteriaMet = false;
-
-            userNameErrorLabel.setText("No Username Chosen!");
-            userNameErrorLabel.setDisable(false);
-
-            chooseAvatarErrorLabel.setText("No avatar chosen!");
-            chooseAvatarErrorLabel.setDisable(false);
-        }
-        else if ((usernameTextField.getText().length() > 14) && (avatarID == -1))
-        {
-            criteriaMet = false;
-
-            userNameErrorLabel.setText("Username cannot be longer than 14 characters!");
-            userNameErrorLabel.setDisable(false);
-
-            chooseAvatarErrorLabel.setText("No avatar chosen!");
-            chooseAvatarErrorLabel.setDisable(false);
-        }
-        else if (usernameTextField.getText().length() > 14)
-        {
-            criteriaMet = false;
-
-            userNameErrorLabel.setText("Username cannot be longer than 14 characters!");
-            userNameErrorLabel.setDisable(false);
-
-            chooseAvatarErrorLabel.setDisable(true);
-        }
-        else if (usernameTextField.getText().equals(""))
-        {
-            criteriaMet = false;
-
-            userNameErrorLabel.setText("No Username Chosen!");
-            userNameErrorLabel.setDisable(false);
-
-            chooseAvatarErrorLabel.setDisable(true);
-        }
-        else if (avatarID == -1)
-        {
-            criteriaMet = false;
-
-            chooseAvatarErrorLabel.setText("No avatar chosen!");
-            chooseAvatarErrorLabel.setDisable(false);
-
-            userNameErrorLabel.setDisable(true);
-        }
-        else
-        {
-            criteriaMet = true;
-            chooseAvatarErrorLabel.setDisable(true);
-            userNameErrorLabel.setDisable(true);
-            userChoiceErrorLabel.setDisable(true);
-        }
-
-        return criteriaMet;
-    }
-
-    private boolean checkCriteriaDraft()
     {
         boolean criteriaMet = true;
 
@@ -314,7 +250,22 @@ public class choosePlayerController implements Initializable
             avatarPreviewImageview.setImage(av_Image[avatarID]);
         }
         usernameDisplayLabel.setText(usernameTextField.getText().toLowerCase());
-        nameDisplayLabel.setText(firstnameTextField.getText().trim() + " " + lastnameTextField.getText().trim());
+
+        String firstname = "";
+        String lastname = "";
+
+
+        if (!firstnameTextField.getText().equals(""))
+        {
+            firstname = firstnameTextField.getText().substring(0, 1).toUpperCase() + firstnameTextField.getText().substring(1);
+        }
+        if (!lastnameTextField.getText().equals(""))
+        {
+            lastname = lastnameTextField.getText().substring(0, 1).toUpperCase() + lastnameTextField.getText().substring(1);
+
+        }
+
+        nameDisplayLabel.setText(firstname.trim() + " " + lastname.trim());
     }
 
 
